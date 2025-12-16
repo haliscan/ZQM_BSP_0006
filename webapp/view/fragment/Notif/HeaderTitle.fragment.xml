@@ -1,0 +1,62 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:uxap="sap.uxap"
+    xmlns:core="sap.ui.core"
+>
+    <uxap:ObjectPageDynamicHeaderTitle>
+        <uxap:expandedHeading>
+            <FlexBox direction="Column">
+                <FlexBox
+                    direction="Row"
+                    alignContent="Start"
+                    alignItems="Center"
+                >
+                    <Label
+                        wrapping="true"
+                        text="{i18n>Qmnum}"
+                        showColon="true"
+                        width="110px"
+                    />
+                    <Title
+                        class="sapUiTinyMarginBegin"
+                        text="{viewModel>/Header/Qmnum}"
+                        wrapping="true"
+                    />
+                </FlexBox>
+            </FlexBox>
+        </uxap:expandedHeading>
+
+        <uxap:snappedHeading>
+            <HBox>
+                <VBox>
+                    <FlexBox direction="Column">
+                        <FlexBox
+                            direction="Row"
+                            alignContent="Start"
+                            alignItems="Center"
+                            class="sapUiSmallMarginBegin sapUiSmallMarginTop"
+                        >
+                            <Label
+                                wrapping="true"
+                                text="{i18n>Qmnum}"
+                                showColon="true"
+                                width="110px"
+                            />
+                            <Title
+                                class="sapUiTinyMarginBegin"
+                                text="{viewModel>/Header/Qmnum}"
+                                wrapping="true"
+                            />
+                        </FlexBox>
+                    </FlexBox>
+                </VBox>
+            </HBox>
+        </uxap:snappedHeading>
+
+        <uxap:snappedTitleOnMobile>
+            <Title text="{i18n>Qmnum} {viewModel>/Header/Qmnum}" />
+        </uxap:snappedTitleOnMobile>
+    </uxap:ObjectPageDynamicHeaderTitle>
+</core:FragmentDefinition>
+
+

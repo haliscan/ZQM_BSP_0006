@@ -1,0 +1,899 @@
+<mvc:View
+    controllerName="com.karsan.qm.taskmanage.controller.Report"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:ui="sap.ui.table"
+>
+    <semantic:SemanticPage
+        fitContent="true"
+        toggleHeaderOnTitleClick="false"
+    >
+        <semantic:headerContent>
+            <smartFilterBar:SmartFilterBar
+                id="idSfbReportSet"
+                entitySet="ReportSet"
+                persistencyKey="SmartFilterPKey"
+                showClearOnFB="true"
+                showRestoreOnFB="false"
+                showGoOnFB="true"
+                showRestoreButton="false"
+                showFilterConfiguration="false"
+            >
+                <smartFilterBar:controlConfiguration>
+                    <smartFilterBar:ControlConfiguration
+                        key="Lifnum"
+                        label="{i18n>Lifnum}"
+                    />
+
+                    <smartFilterBar:ControlConfiguration
+                        key="Qmart"
+                        filterType="single"
+                        label="{i18n>Qmart}"
+                    >
+                        <smartFilterBar:defaultFilterValues>
+                            <smartFilterBar:SelectOption
+                                sign="I"
+                                operator="EQ"
+                                low="Y1"
+                            />
+                        </smartFilterBar:defaultFilterValues>
+                    </smartFilterBar:ControlConfiguration>
+
+                    <smartFilterBar:ControlConfiguration
+                        key="Check48"
+                        filterType="single"
+                        label="{i18n>Check48}"
+                        controlType="dropDownList"
+                        displayBehaviour="idAndDescription"
+                    />
+
+                    <smartFilterBar:ControlConfiguration
+                        key="ErdatTsk"
+                        filterType="interval"
+                        controlType="date"
+                    />
+
+                    <smartFilterBar:ControlConfiguration
+                        key="NtfStat"
+                        filterType="single"
+                        label="{i18n>NtfStat}"
+                        controlType="dropDownList"
+                        displayBehaviour="idAndDescription"
+                    />
+                </smartFilterBar:controlConfiguration>
+            </smartFilterBar:SmartFilterBar>
+        </semantic:headerContent>
+        <semantic:content>
+            <smartTable:SmartTable
+                id="idStReport"
+                entitySet="ReportSet"
+                smartFilterId="idSfbReportSet"
+                tableType="Table"
+                enableExport="true"
+                beforeExport="onBeforeExport"
+                useVariantManagement="true"
+                useTablePersonalisation="true"
+                header="{i18n>TotalFound}"
+                showRowCount="true"
+                showFullScreenButton="true"
+                showVariantManagement="true"
+                demandPopin="false"
+                enableAutoColumnWidth="true"
+                enableAutoBinding="false"
+                persistencyKey="SmartTableAnalytical_Explored"
+                ignoredFields=""
+                initiallyVisibleFields=""
+                requestAtLeastFields="ErnamTskTxt,ErlnamTxt,Qmartx,ErnamNtfTxt,NtfStatTxt,Check48Txt,Objnr,Mgein"
+                ignoreFromPersonalisation="ErnamTskTxt,ErlnamTxt,Qmartx,ErnamNtfTxt,NtfStatTxt,Check48Txt,Objnr,Mgein"
+                beforeRebindTable="onAfterRendering"
+            >
+                <ui:Table
+                    id="idReportTable"
+                    alternateRowColors="true"
+                    fixedColumnCount="2"
+                    selectionMode="None"
+                    rowMode="Auto"
+                    selectionBehavior="RowSelector"
+                    cellClick="onSelectNotif"
+                >
+                    <ui:rowSettingsTemplate>
+                        <ui:RowSettings
+                            highlight="{= ${TaskOnay} === 'OK' ? 'Success' : ${TaskOnay} === 'NOK' ? 'Error' : 'None' }"
+                        />
+                    </ui:rowSettingsTemplate>
+
+                    <ui:Column
+                        filterProperty="Qmnum"
+                        hAlign="Center"
+                    >
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Qmnum}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "0", "columnKey": "Qmnum", "additionalProperty":"Qmnum", "leadingProperty": "Qmnum", "autoColumnWidth": \{ "visibleProperty": "Qmnum" }, "sortProperty": "Qmnum", "filterProperty":"Qmnum"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{Qmnum}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Manum}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "10", "columnKey": "Manum", "additionalProperty":"Manum", "leadingProperty": "Manum", "autoColumnWidth": \{ "visibleProperty": "Manum" }, "sortProperty": "Manum"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text
+                                text="{ 'path': 'Manum', formatter: '.formatter.formatItemNo'}"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Mnkat}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "20", "columnKey": "Mnkat", "additionalProperty":"Mnkat", "leadingProperty": "Mnkat", "autoColumnWidth": \{ "visibleProperty": "Qmnum" }, "sortProperty": "Mnkat"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{Mnkat}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column
+                        filterProperty="Mngrp"
+                        hAlign="Center"
+                    >
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Mngrp}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "30", "columnKey": "Mngrp", "additionalProperty":"Mngrp", "leadingProperty": "Mngrp", "autoColumnWidth": \{ "visibleProperty": "Mngrp" }, "sortProperty": "Mngrp", "filterProperty":"Mngrp"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{Mngrp}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column
+                        filterProperty="Mncod"
+                        hAlign="Center"
+                    >
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Mncod}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "40", "columnKey": "Mncod", "additionalProperty":"Mncod", "leadingProperty": "Mncod", "autoColumnWidth": \{ "visibleProperty": "Mncod" }, "sortProperty": "Mncod", "filterProperty":"Mncod"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text
+                                text="{ 'path': 'Mncod', formatter: '.formatter.formatItemNo'}"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Mntxt}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "50", "columnKey": "Mntxt", "additionalProperty":"Mntxt", "leadingProperty": "Mntxt", "autoColumnWidth": \{ "visibleProperty": "Mntxt" }, "sortProperty": "Mntxt"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{Mntxt}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>ErnamTsk}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "60", "columnKey": "ErnamTsk", "additionalProperty":"ErnamTsk", "leadingProperty": "ErnamTsk", "autoColumnWidth": \{ "visibleProperty": "ErnamTsk" }, "sortProperty": "ErnamTsk"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{ErnamTskTxt}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column
+                        filterProperty="ErdatTsk"
+                        hAlign="Center"
+                    >
+                        <Label
+                            wrapping="true"
+                            text="{i18n>ErdatTsk}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "70", "columnKey": "ErdatTsk", "additionalProperty":"ErdatTsk", "leadingProperty": "ErdatTsk", "autoColumnWidth": \{ "visibleProperty": "ErdatTsk" }, "sortProperty": "ErdatTsk", "filterProperty":"ErdatTsk"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text
+                                text="{ 'path': 'ErdatTsk', 'type': 'sap.ui.model.type.Date', 'formatOptions': { 'pattern': 'dd/MM/y' } }"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Pster}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "80", "columnKey": "Pster", "additionalProperty":"Pster", "leadingProperty": "Pster", "autoColumnWidth": \{ "visibleProperty": "Pster" }, "sortProperty": "Pster"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text
+                                text="{ 'path': 'Pster', 'type': 'sap.ui.model.type.Date', 'formatOptions': { 'pattern': 'dd/MM/y' } }"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Peter}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "90", "columnKey": "Peter", "additionalProperty":"Peter", "leadingProperty": "Peter", "autoColumnWidth": \{ "visibleProperty": "Peter" }, "sortProperty": "Peter"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text
+                                text="{ 'path': 'Peter', 'type': 'sap.ui.model.type.Date', 'formatOptions': { 'pattern': 'dd/MM/y' } }"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Pstur}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "100", "columnKey": "Pstur", "additionalProperty":"Pstur", "leadingProperty": "Pstur", "autoColumnWidth": \{ "visibleProperty": "Pstur" }, "sortProperty": "Pstur"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text
+                                text="{ 'path': 'Pstur', formatter: '.formatter.formatMsToTime'}"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Petur}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "110", "columnKey": "Petur", "additionalProperty":"Petur", "leadingProperty": "Petur", "autoColumnWidth": \{ "visibleProperty": "Petur" }, "sortProperty": "Petur"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text
+                                text="{ 'path': 'Petur', formatter: '.formatter.formatMsToTime'}"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Erlnam}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "120", "columnKey": "Erlnam", "additionalProperty":"Erlnam", "leadingProperty": "Erlnam", "autoColumnWidth": \{ "visibleProperty": "Erlnam" }, "sortProperty": "Erlnam"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{ErlnamTxt}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Erldat}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "130", "columnKey": "Erldat", "additionalProperty":"Erldat", "leadingProperty": "Erldat", "autoColumnWidth": \{ "visibleProperty": "Erldat" }, "sortProperty": "Erldat"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text
+                                text="{ 'path': 'Erldat', 'type': 'sap.ui.model.type.Date', 'formatOptions': { 'pattern': 'dd/MM/y' } }"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Erlzeit}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "140", "columnKey": "Erlzeit", "additionalProperty":"Erlzeit", "leadingProperty": "Erlzeit", "autoColumnWidth": \{ "visibleProperty": "Erlzeit" }, "sortProperty": "Erlzeit"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text
+                                text="{ 'path': 'Erlzeit', formatter: '.formatter.formatMsToTime'}"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Fenum}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "150", "columnKey": "Fenum", "additionalProperty":"Fenum", "leadingProperty": "Fenum", "autoColumnWidth": \{ "visibleProperty": "Fenum" }, "sortProperty": "Fenum"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text
+                                text="{ 'path': 'Fenum', formatter: '.formatter.formatItemNo'}"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column
+                        filterProperty="Parnr"
+                        hAlign="Center"
+                    >
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Parnr}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "160", "columnKey": "Parnr", "additionalProperty":"Parnr", "leadingProperty": "Parnr", "autoColumnWidth": \{ "visibleProperty": "Parnr" }, "sortProperty": "Parnr", "filterProperty":"Parnr"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{Parnr}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Qsmnum}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "170", "columnKey": "Qsmnum", "additionalProperty":"Qsmnum", "leadingProperty": "Qsmnum", "autoColumnWidth": \{ "visibleProperty": "Qsmnum" }, "sortProperty": "Qsmnum"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text
+                                text="{ 'path': 'Qsmnum', formatter: '.formatter.formatItemNo'}"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Matxt}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "180", "columnKey": "Matxt", "additionalProperty":"Matxt", "leadingProperty": "Matxt", "autoColumnWidth": \{ "visibleProperty": "Matxt" }, "sortProperty": "Matxt"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{Matxt}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column
+                        filterProperty="Lifnum"
+                        hAlign="Center"
+                    >
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Lifnum}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "185", "columnKey": "Lifnum", "additionalProperty":"Lifnum", "leadingProperty": "Lifnum", "autoColumnWidth": \{ "visibleProperty": "Lifnum" }, "sortProperty": "Lifnum", "filterProperty":"Lifnum"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{Lifnum}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Lifname}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "190", "columnKey": "Lifname", "additionalProperty":"Lifname", "leadingProperty": "Lifname", "autoColumnWidth": \{ "visibleProperty": "Lifname" }, "sortProperty": "Lifname"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{Lifname}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column
+                        filterProperty="Qmart"
+                        hAlign="Center"
+                    >
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Qmart}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "210", "columnKey": "Qmart", "additionalProperty":"Qmart", "leadingProperty": "Qmart", "autoColumnWidth": \{ "visibleProperty": "Qmartx" }, "sortProperty": "Qmart", "filterProperty":"Qmart"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{Qmartx}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Qmcod}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "220", "columnKey": "Qmcod", "additionalProperty":"Qmcod", "leadingProperty": "Qmcod", "autoColumnWidth": \{ "visibleProperty": "Qmcod" }, "sortProperty": "Qmcod"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{Qmcod}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Matnr}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "230", "columnKey": "Matnr", "additionalProperty":"Matnr", "leadingProperty": "Matnr", "autoColumnWidth": \{ "visibleProperty": "Matnr" }, "sortProperty": "Matnr"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{Matnr}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Maktx}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "240", "columnKey": "Maktx", "additionalProperty":"Maktx", "leadingProperty": "Maktx", "autoColumnWidth": \{ "visibleProperty": "Maktx" }, "sortProperty": "Maktx"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{Maktx}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Qmdat}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "250", "columnKey": "Qmdat", "additionalProperty":"Qmdat", "leadingProperty": "Qmdat", "autoColumnWidth": \{ "visibleProperty": "Qmdat" }, "sortProperty": "Qmdat"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text
+                                text="{ 'path': 'Qmdat', 'type': 'sap.ui.model.type.Date', 'formatOptions': { 'pattern': 'dd/MM/y' } }"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Mzeit}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "260", "columnKey": "Mzeit", "additionalProperty":"Mzeit", "leadingProperty": "Mzeit", "autoColumnWidth": \{ "visibleProperty": "Mzeit" }, "sortProperty": "Mzeit"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text
+                                text="{ 'path': 'Mzeit', formatter: '.formatter.formatMsToTime'}"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>ErnamNtf}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "270", "columnKey": "ErnamNtf", "additionalProperty":"ErnamNtf", "leadingProperty": "ErnamNtf", "autoColumnWidth": \{ "visibleProperty": "ErnamNtf" }, "sortProperty": "ErnamNtf"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{ErnamNtfTxt}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Ebeln}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "280", "columnKey": "Ebeln", "additionalProperty":"Ebeln", "leadingProperty": "Ebeln", "autoColumnWidth": \{ "visibleProperty": "Ebeln" }, "sortProperty": "Ebeln"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{Ebeln}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Mblnr}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "290", "columnKey": "Mblnr", "additionalProperty":"Mblnr", "leadingProperty": "Mblnr", "autoColumnWidth": \{ "visibleProperty": "Mblnr" }, "sortProperty": "Mblnr"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{Mblnr}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Vbeln}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "300", "columnKey": "Vbeln", "additionalProperty":"Vbeln", "leadingProperty": "Vbeln", "autoColumnWidth": \{ "visibleProperty": "Vbeln" }, "sortProperty": "Vbeln"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{Vbeln}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Bzmng}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "310", "columnKey": "Bzmng", "additionalProperty":"Bzmng", "leadingProperty": "Bzmng", "autoColumnWidth": \{ "visibleProperty": "Bzmng" }, "sortProperty": "Bzmng"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <ObjectNumber
+                                number="{ 'path': 'Bzmng', formatter: '.formatter.formatMeasureQuantity'}"
+                                unit="{ parts:['Bzmng','Mgein'], formatter: '.formatter.SetVisibleUnit'}"
+                                emphasized="false"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Rkmng}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "320", "columnKey": "Rkmng", "additionalProperty":"Rkmng", "leadingProperty": "Rkmng", "autoColumnWidth": \{ "visibleProperty": "Rkmng" }, "sortProperty": "Rkmng"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <ObjectNumber
+                                number="{ 'path': 'Rkmng', formatter: '.formatter.formatMeasureQuantity'}"
+                                unit="{ parts:['Bzmng','Mgein'], formatter: '.formatter.SetVisibleUnit'}"
+                                emphasized="false"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <!-- <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Mgein}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "330", "columnKey": "Mgein", "additionalProperty":"Mgein", "leadingProperty": "Mgein", "autoColumnWidth": \{ "visibleProperty": "Mgein" }, "sortProperty": "Mgein"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{Mgein}" />
+                        </ui:template>
+                    </ui:Column> -->
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>HataTuru}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "340", "columnKey": "HataTuru", "additionalProperty":"HataTuru", "leadingProperty": "HataTuru", "autoColumnWidth": \{ "visibleProperty": "HataTuru" }, "sortProperty": "HataTuru"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{HataTuru}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>TespEdlIst}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "350", "columnKey": "TespEdlIst", "additionalProperty":"TespEdlIst", "leadingProperty": "TespEdlIst", "autoColumnWidth": \{ "visibleProperty": "TespEdlIst" }, "sortProperty": "TespEdlIst"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{TespEdlIst}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Respc}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "360", "columnKey": "Respc", "additionalProperty":"Respc", "leadingProperty": "Respc", "autoColumnWidth": \{ "visibleProperty": "Respc" }, "sortProperty": "Respc"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{Respc}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>ParcaStatu}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "370", "columnKey": "ParcaStatu", "additionalProperty":"ParcaStatu", "leadingProperty": "ParcaStatu", "autoColumnWidth": \{ "visibleProperty": "ParcaStatu" }, "sortProperty": "ParcaStatu"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{ParcaStatu}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Product}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "380", "columnKey": "UrunGrubu", "additionalProperty":"UrunGrubu", "leadingProperty": "UrunGrubu", "autoColumnWidth": \{ "visibleProperty": "UrunGrubu" }, "sortProperty": "UrunGrubu"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{UrunGrubu}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>HowDetect}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "390", "columnKey": "HowDetect", "additionalProperty":"HowDetect", "leadingProperty": "HowDetect", "autoColumnWidth": \{ "visibleProperty": "HowDetect" }, "sortProperty": "HowDetect"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{HowDetect}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>TekrarDurumu}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "400", "columnKey": "TekrarDurumu", "additionalProperty":"TekrarDurumu", "leadingProperty": "TekrarDurumu", "autoColumnWidth": \{ "visibleProperty": "TekrarDurumu" }, "sortProperty": "TekrarDurumu"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{TekrarDurumu}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column
+                        filterProperty="NtfStat"
+                        hAlign="Center"
+                    >
+                        <Label
+                            wrapping="true"
+                            text="{i18n>NtfStat}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "410", "columnKey": "NtfStat", "additionalProperty":"NtfStat", "leadingProperty": "NtfStat", "autoColumnWidth": \{ "visibleProperty": "NtfStat" }, "sortProperty": "NtfStat", "filterProperty":"NtfStat"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{NtfStatTxt}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>TaskOnay}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "430", "columnKey": "TaskOnay", "additionalProperty":"TaskOnay", "leadingProperty": "TaskOnay", "autoColumnWidth": \{ "visibleProperty": "TaskOnay" }, "sortProperty": "TaskOnay"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{TaskOnay}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column
+                        filterProperty="Check48"
+                        hAlign="Center"
+                    >
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Check48}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "440", "columnKey": "Check48", "additionalProperty":"Check48", "leadingProperty": "Check48", "autoColumnWidth": \{ "visibleProperty": "Check48Txt" }, "sortProperty": "Check48", "filterProperty":"Check48"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text text="{Check48Txt}" />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Durus}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "450", "columnKey": "Durus", "additionalProperty":"Durus", "leadingProperty": "Durus", "autoColumnWidth": \{ "visibleProperty": "Durus" }, "sortProperty": "Durus"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <CheckBox
+                                selected="{Durus}"
+                                editable="false"
+                            />
+                        </ui:template>
+                    </ui:Column>
+                </ui:Table>
+            </smartTable:SmartTable>
+        </semantic:content>
+    </semantic:SemanticPage>
+</mvc:View>
+
+

@@ -1,0 +1,121 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:uxap="sap.uxap"
+    xmlns:core="sap.ui.core"
+>
+    <FlexBox
+        wrap="Wrap"
+        fitContainer="true"
+        alignItems="Start"
+        alignContent="Start"
+        justifyContent="Start"
+    >
+        <VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+            <HBox
+                class="sapUiTinyMarginBottom"
+                renderType="Bare"
+            >
+                <Label
+                    wrapping="true"
+                    width="85px"
+                    text="{i18n>Mncod}"
+                    class="sapUiTinyMarginEnd"
+                    showColon="true"
+                />
+                <Text text="{viewModel>/Header/Mncod}" />
+            </HBox>
+
+            <HBox
+                class="sapUiTinyMarginBottom"
+                renderType="Bare"
+            >
+                <Label
+                    wrapping="true"
+                    width="85px"
+                    text="{i18n>Mntxt}"
+                    class="sapUiTinyMarginEnd"
+                    showColon="true"
+                />
+                <Text text="{viewModel>/Header/Mntxt}" />
+            </HBox>
+        </VBox>
+
+        <VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+            <HBox
+                class="sapUiTinyMarginBottom"
+                renderType="Bare"
+            >
+                <Label
+                    wrapping="true"
+                    width="100px"
+                    text="{i18n>Lifnum}"
+                    class="sapUiTinyMarginEnd"
+                    showColon="true"
+                />
+                <Text text="{viewModel>/Header/Lifnum}" />
+            </HBox>
+
+            <HBox
+                class="sapUiTinyMarginBottom"
+                renderType="Bare"
+            >
+                <Label
+                    wrapping="true"
+                    width="100px"
+                    text="{i18n>Lifname}"
+                    class="sapUiTinyMarginEnd"
+                    showColon="true"
+                />
+                <Text text="{viewModel>/Header/Lifname}" />
+            </HBox>
+        </VBox>
+
+        <VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+            <HBox
+                class="sapUiTinyMarginBottom"
+                renderType="Bare"
+            >
+                <Label
+                    wrapping="true"
+                    width="105px"
+                    text="{i18n>Matnr}"
+                    class="sapUiTinyMarginEnd"
+                    showColon="true"
+                />
+                <Text text="{viewModel>/Header/Matnr}" />
+            </HBox>
+
+            <HBox
+                class="sapUiTinyMarginBottom"
+                renderType="Bare"
+            >
+                <Label
+                    wrapping="true"
+                    width="105px"
+                    text="{i18n>Maktx}"
+                    class="sapUiTinyMarginEnd"
+                    showColon="true"
+                />
+                <Text text="{viewModel>/Header/Maktx}" />
+            </HBox>
+        </VBox>
+
+        <VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+            <HBox
+                class="sapUiTinyMarginBottom"
+                renderType="Bare"
+            >
+                <Label
+                    wrapping="true"
+                    width="105px"
+                    text="{i18n>NtfStat}"
+                    class="sapUiTinyMarginEnd"
+                    showColon="true"
+                />
+                <Text text="{viewModel>/Header/NtfStatTxt}" />
+            </HBox>
+        </VBox>
+    </FlexBox>
+</core:FragmentDefinition>
+
+

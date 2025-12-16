@@ -1,0 +1,138 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:table="sap.ui.table"
+    xmlns:layout="sap.ui.layout.form"
+>
+    <FlexBox direction="Column">
+        <layout:SimpleForm  
+            layout="ResponsiveGridLayout"
+            labelSpanL="1"
+            labelSpanM="1"
+            labelSpanS="1"
+            emptySpanL="0" 
+        >
+            <Label text="{i18n>Manum}" />
+            <Text text="{viewModel>/Notif/Manum}" />
+
+            <Label text="{i18n>Qmnum}" />
+            <Text text="{viewModel>/Notif/Qmnum}" />
+
+            <Label text="{i18n>Qmdat}" />
+            <Text
+                text="{ 'path': 'viewModel>/Notif/Qmdat', 'type': 'sap.ui.model.type.Date', 'formatOptions': { 'pattern': 'dd/MM/y' } }"
+            />
+
+            <Label text="{i18n>Mzeit}" />
+            <Text
+                text="{ 'path': 'viewModel>/Notif/Mzeit', formatter: '.formatter.formatMsToTime'}"
+            />
+
+            <Label text="{i18n>Ernam}" />
+            <Text
+                text="{ parts:['viewModel>/Notif/Ernam','viewModel>/Notif/ErnamTxt'], formatter: '.formatter.formatErnam'}"
+            />
+
+            <Label text="{i18n>Ebeln}" />
+            <Text text="{viewModel>/Notif/Ebeln}" />
+
+            <Label text="{i18n>Mblnr}" />
+            <Text text="{viewModel>/Notif/Mblnr}" />
+
+            <Label text="{i18n>Vbeln}" />
+            <Text text="{viewModel>/Notif/Vbeln}" />
+
+            <Label text="{i18n>Bzmng}" />
+            <ObjectNumber
+                number="{ 'path': 'viewModel>/Notif/Bzmng', formatter: '.formatter.formatMeasureQuantity'}"
+                unit="{ parts:['viewModel>/Notif/Bzmng','viewModel>/Notif/Mgein'], formatter: '.formatter.SetVisibleUnit'}"
+                emphasized="false"
+            />
+
+            <Label text="{i18n>Rkmng}" />
+            <ObjectNumber
+                number="{ 'path': 'viewModel>/Notif/Rkmng', formatter: '.formatter.formatMeasureQuantity'}"
+                unit="{ parts:['viewModel>/Notif/Rkmng','viewModel>/Notif/Mgein'], formatter: '.formatter.SetVisibleUnit'}"
+                emphasized="false"
+            />
+
+            <!-- <Label text="{i18n>Mgein}" />
+            <Text text="{viewModel>Mgein}" /> -->
+
+            <Label
+                text="{i18n>HataTuru}"
+                class="sapUiTinyMarginTop"
+            />
+            <ComboBox
+                items="{path: '/ShHataTuruSet', templateShareable: false}"
+                selectedKey="{viewModel>/Notif/HataTuru}"
+                editable="false"
+                width="20%"
+            >
+                <core:ListItem
+                    key="{Code}"
+                    text="{Kurztext}"
+                />
+            </ComboBox>
+
+            <Label text="{i18n>TespEdlIst}" />
+            <Text text="{viewModel>/Notif/TespEdlIst}" />
+
+            <Label text="{i18n>Respc}" />
+            <Text text="{viewModel>/Notif/Respc}" />
+
+            <Label
+                text="{i18n>ParcaStatu}"
+                class="sapUiTinyMarginTop"
+            />
+            <ComboBox
+                items="{path: '/ShPartStatuSet', templateShareable: false}"
+                selectedKey="{viewModel>/Notif/ParcaStatu}"
+                editable="false"
+                width="20%"
+            >
+                <core:ListItem
+                    key="{Code}"
+                    text="{Description}"
+                />
+            </ComboBox>
+
+            <Label
+                text="{i18n>Product}"
+                class="sapUiTinyMarginTop"
+            />
+            <ComboBox
+                items="{path: '/ShUrunGrubuSet', templateShareable: false}"
+                selectedKey="{viewModel>/Notif/UrunGrubu}"
+                editable="false"
+                width="20%"
+            >
+                <core:ListItem
+                    key="{Atwrt}"
+                    text="{Atwtb}"
+                />
+            </ComboBox>
+
+            <Label text="{i18n>HowDetect}" />
+            <Text text="{viewModel>/Notif/HowDetect}" />
+
+            <Label
+                text="{i18n>TekrarDurumu}"
+                class="sapUiTinyMarginTop"
+            />
+            <ComboBox
+                items="{path: '/ShTekrarSet', templateShareable: false}"
+                selectedKey="{viewModel>/Notif/TekrarDurumu}"
+                editable="false"
+                width="20%"
+            >
+                <core:ListItem
+                    key="{Code}"
+                    text="{Description}"
+                />
+            </ComboBox>
+        </layout:SimpleForm>
+    </FlexBox>
+</core:FragmentDefinition>
+
+

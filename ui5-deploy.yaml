@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: com.karsan.qm.taskmanage
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        ignoreCertError: true
+        target:
+          url:  https://vhvvyksdci.sap.karsan.com.tr:44300/
+          client: "100"
+        app:
+          name: ZQM_BSP_0006
+          description: QM015/ Uygunsuzluk Görev Ekranı
+          package: ZQM_015
+          transport: KSDK907883
+        exclude:
+          - /test/

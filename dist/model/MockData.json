@@ -1,0 +1,40 @@
+{
+    "NavParams": {
+        "View": "Notif",
+        "Qmnum": "2000000001",
+        "Manum": "0001",
+        "Action": "Display"
+    },
+    "WaitingAction": [
+        {
+            "Seqnr": 1,
+            "Action": "this._run",
+            "Event": {}
+        }
+    ],
+    "Messages": [
+        {
+            "type": "Error",
+            "title": "Hata Başlığı",
+            "subtitle": "Hata Alt Başlığı",
+            "description": "Hata Açıklaması",
+            "groupName": "Hata Grubu",
+            "activeTitle": false,
+            "controlId": "inputFieldId",
+            "Type": "E",
+            "Id": "123",
+            "Number": "456",
+            "Message": "Hata Mesajı",
+            "LogNo": "789",
+            "LogMsgNo": "101112",
+            "MessageV1": "Detaylı Hata Mesajı 1",
+            "MessageV2": "Detaylı Hata Mesajı 2",
+            "MessageV3": "Detaylı Hata Mesajı 3",
+            "MessageV4": "Detaylı Hata Mesajı 4",
+            "Parameter": "Parametre Değeri",
+            "Row": "Satır Numarası",
+            "Field": "Alan Adı",
+            "System": "Sistem Adı"
+        }
+    ]
+}

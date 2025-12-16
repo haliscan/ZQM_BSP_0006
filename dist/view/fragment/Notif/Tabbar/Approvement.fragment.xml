@@ -1,0 +1,73 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:table="sap.ui.table"
+>
+    <FlexBox
+        direction="Column"
+        width="300px"
+    >
+        <FlexBox
+            direction="Row"
+            visible="{ parts:['viewModel>/Auth/Authenticated','viewModel>/Approvement/Decision'], formatter: '.formatter.SetVisibleTaskStatu'}"
+        >
+            <Label
+                class="sapUiTinyMarginTop"
+                text="{i18n>Decision}"
+                width="55px"
+            />
+            <ComboBox
+                items="{path: '/ShTaskOnaySet', templateShareable: false}"
+                selectedKey="{viewModel>/Approvement/Decision}"
+                editable="false"
+                width="50%"
+            >
+                <core:ListItem
+                    key="{Code}"
+                    text="{Description}"
+                />
+            </ComboBox>
+        </FlexBox>
+
+        <FlexBox direction="Row">
+            <TextArea
+                id="IdApprovementDescr"
+                value="{viewModel>/Approvement/Descr}"
+                placeholder="{i18n>RequiredDescr}"
+                cols="50"
+                rows="5"
+                required="true"
+                editable="{ parts:['viewModel>/Auth/Authenticated','viewModel>/Approvement/Decision'], formatter: '.formatter.SetEditableDescr'}"
+                change="onChangeInput"
+            />
+        </FlexBox>
+
+        <FlexBox
+            direction="Row"
+            alignContent="End"
+            justifyContent="End"
+        >
+            <Button
+                press="onApprove"
+                class="sapUiSmallMarginEnd"
+                text="{i18n>Approve}"
+                type="Accept"
+                visible="{ parts:['viewModel>/Auth/Authenticated','viewModel>/Header/Mncod','viewModel>/Approvement/Decision'], formatter: '.formatter.SetVisibleApproveAction'}"
+            />
+            <Button
+                press="onReject"
+                text="{i18n>Reject}"
+                type="Reject"
+                visible="{ parts:['viewModel>/Auth/Authenticated','viewModel>/Header/Mncod','viewModel>/Approvement/Decision'], formatter: '.formatter.SetVisibleApproveAction'}"
+            />
+            <Button
+                press="onSave"
+                text="{i18n>Save}"
+                type="Emphasized"
+                visible="{ parts:['viewModel>/Auth/Authenticated','viewModel>/Header/Mncod','viewModel>/Approvement/Decision'], formatter: '.formatter.SetVisibleSaveAction'}"
+            /> 
+        </FlexBox>
+    </FlexBox>
+</core:FragmentDefinition>
+
+
