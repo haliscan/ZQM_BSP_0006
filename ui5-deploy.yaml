@@ -21,6 +21,6 @@ builder:
           name: ZQM_BSP_0006
           description: QM015/ Uygunsuzluk Görev Ekranı
           package: ZQM_015
-          transport: KSDK907883
+          transport: KSDK908866
         exclude:
           - /test/
