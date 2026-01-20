@@ -37,6 +37,7 @@ sap.ui.define(
                     this.getViewModel().setProperty("/LoggedUser", oUser);
 
                     await this.onInitFilter();
+                    this.byId("idReportPage").setVisible(true);
                     this._setSFBconfig();
                 });
 
@@ -44,13 +45,14 @@ sap.ui.define(
 
             onInitFilter: async function () {
 
-                let oUser = this.getViewModel().getProperty("/LoggedUser"); 
+                let oUser = this.getViewModel().getProperty("/LoggedUser");
                 let oFbLifnr = this.byId("idSfbReportSet").getControlByKey("Lifnum");
                 if (oUser.IsSupplier) {
                     oFbLifnr.removeAllTokens();
                     oFbLifnr.setValue(oUser.Uname);
                     oFbLifnr.setEnabled(false);
                 }
+                this.byId("idStReport").rebindTable();
 
             },
 

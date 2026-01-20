@@ -10,8 +10,10 @@
     xmlns:ui="sap.ui.table"
 >
     <semantic:SemanticPage
+        id="idReportPage"
         fitContent="true"
         toggleHeaderOnTitleClick="false"
+        visible="false"
     >
         <semantic:headerContent>
             <smartFilterBar:SmartFilterBar
@@ -32,7 +34,7 @@
 
                     <smartFilterBar:ControlConfiguration
                         key="Qmart"
-                        filterType="single"
+                        filterType="multiple"
                         label="{i18n>Qmart}"
                     >
                         <smartFilterBar:defaultFilterValues>
@@ -40,6 +42,11 @@
                                 sign="I"
                                 operator="EQ"
                                 low="Y1"
+                            />
+                            <smartFilterBar:SelectOption
+                                sign="I"
+                                operator="EQ"
+                                low="YL"
                             />
                         </smartFilterBar:defaultFilterValues>
                     </smartFilterBar:ControlConfiguration>
@@ -895,5 +902,3 @@
         </semantic:content>
     </semantic:SemanticPage>
 </mvc:View>
-
-
