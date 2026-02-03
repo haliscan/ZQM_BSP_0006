@@ -131,8 +131,15 @@
                     text="{Description}"
                 />
             </ComboBox>
+
+
+            <Label text="{i18n>Fetxt}" />
+            <Text text="{viewModel>/Notif/Fetxt}" />
+
+
+            <Label text="{i18n>Ottxt}" />
+            <Text text="{viewModel>/Notif/Ottxt}" />
+
         </layout:SimpleForm>
     </FlexBox>
 </core:FragmentDefinition>
-
-

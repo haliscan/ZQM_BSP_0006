@@ -72,6 +72,22 @@
                         controlType="dropDownList"
                         displayBehaviour="idAndDescription"
                     />
+
+                    <smartFilterBar:ControlConfiguration
+                        key="Fecod"
+                        label="{i18n>Fecod}"
+                    />
+
+                    <smartFilterBar:ControlConfiguration
+                        key="Oteil"
+                        label="{i18n>Oteil}"
+                    />
+
+                    <smartFilterBar:ControlConfiguration
+                        key="ErdatTsk"
+                        filterType="interval"
+                        controlType="date"
+                    />
                 </smartFilterBar:controlConfiguration>
             </smartFilterBar:SmartFilterBar>
         </semantic:headerContent>
@@ -894,6 +910,42 @@
                             <CheckBox
                                 selected="{Durus}"
                                 editable="false"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Fetxt}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "460", "columnKey": "Fetxt", "additionalProperty":"Fetxt", "leadingProperty": "Fetxt", "autoColumnWidth": \{ "visibleProperty": "Fetxt" }, "sortProperty": "Fetxt"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text
+                                text="{Fetxt} {Fecod}"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Ottxt}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "470", "columnKey": "Ottxt", "additionalProperty":"Ottxt", "leadingProperty": "Ottxt", "autoColumnWidth": \{ "visibleProperty": "Ottxt" }, "sortProperty": "Ottxt"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text
+                                text="{Ottxt} {Oteil}"
                             />
                         </ui:template>
                     </ui:Column>

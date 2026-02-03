@@ -294,6 +294,34 @@ sap.ui.define(
                 }
             },
 
+            onChangeInputMenge(oEvent) {
+                var sMain = "",
+                    vPath = "",
+                    sVal = this._removeSpaces(oEvent.getParameter("value"));
+                if (oEvent.getSource().getBinding("value").getContext()) {
+                    sMain = oEvent.getSource().getBinding("value").getContext().sPath + '/';
+                }
+                var sPart = oEvent.getSource().getBinding("value").sPath
+                if (!sMain) {
+                    vPath = sMain + sPart;
+                }
+
+                //eğer sVal decimal kısmı 3 karakterden fazla ise 3 karaktere yuvarla
+                let fVal = parseFloat(sVal);
+                if (!isNaN(fVal)) {
+                    sVal = fVal.toFixed(3);
+                }
+
+                if (sVal === undefined || sVal === null || isNaN(sVal) || sVal === "") {
+                    sVal = "0.000";
+                }
+
+                this.getViewModel().setProperty(vPath, sVal);
+
+                if (sVal !== "") {
+                    oEvent.getSource().setValueState("None");
+                }
+            },
             onNavBack: function () {
 
                 let oViewModel = this.getViewModel();

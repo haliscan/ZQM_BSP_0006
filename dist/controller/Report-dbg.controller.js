@@ -179,6 +179,7 @@ sap.ui.define(
                     Manum: oSelectedItem.Manum,
                     Action: "Display"
                 });
+                BusyIndicator.show(0);
                 this.getRouter().navTo("Task", {
                     Qmnum: oSelectedItem.Qmnum,
                     Manum: oSelectedItem.Manum,

@@ -25,6 +25,8 @@
                         <PropertyPath>ErdatTsk</PropertyPath>
                         <PropertyPath>NtfStat</PropertyPath>
                         <PropertyPath>Parnr</PropertyPath> 
+                        <PropertyPath>Fecod</PropertyPath> 
+                        <PropertyPath>Oteil</PropertyPath> 
                     </Collection>
                 </Annotation>
             </Annotations>
@@ -158,9 +160,53 @@
                     </Record>
                 </Annotation>
             </Annotations>
+            
+            <Annotations Target="ZQM_0006_SRV.Report/Fecod">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ShFecodSet" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Codegruppe" />
+                                </Record>    
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Fecod" />
+                                    <PropertyValue Property="ValueListProperty" String="Code" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Kurztext" />
+                                </Record>           
+ 
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="ZQM_0006_SRV.Report/Oteil">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ShOteilSet" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Codegruppe" />
+                                </Record>    
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Oteil" />
+                                    <PropertyValue Property="ValueListProperty" String="Code" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Kurztext" />
+                                </Record>           
+ 
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
 
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>
-
-
