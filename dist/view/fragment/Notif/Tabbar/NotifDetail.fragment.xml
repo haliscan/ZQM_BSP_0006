@@ -5,12 +5,12 @@
     xmlns:layout="sap.ui.layout.form"
 >
     <FlexBox direction="Column">
-        <layout:SimpleForm  
+        <layout:SimpleForm
             layout="ResponsiveGridLayout"
             labelSpanL="1"
             labelSpanM="1"
             labelSpanS="1"
-            emptySpanL="0" 
+            emptySpanL="0"
         >
             <Label text="{i18n>Manum}" />
             <Text text="{viewModel>/Notif/Manum}" />
@@ -33,41 +33,60 @@
                 text="{ parts:['viewModel>/Notif/Ernam','viewModel>/Notif/ErnamTxt'], formatter: '.formatter.formatErnam'}"
             />
 
-            <Label text="{i18n>Ebeln}" />
-            <Text text="{viewModel>/Notif/Ebeln}" />
+            <Label
+                text="{i18n>Ebeln}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
+            />
+            <Text
+                text="{viewModel>/Notif/Ebeln}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
+            />
 
-            <Label text="{i18n>Mblnr}" />
-            <Text text="{viewModel>/Notif/Mblnr}" />
+            <Label
+                text="{i18n>Mblnr}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
+            />
+            <Text
+                text="{viewModel>/Notif/Mblnr}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
+            />
 
             <Label text="{i18n>Vbeln}" />
             <Text text="{viewModel>/Notif/Vbeln}" />
 
-            <Label text="{i18n>Bzmng}" />
+            <Label
+                text="{i18n>Bzmng}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
+            />
             <ObjectNumber
                 number="{ 'path': 'viewModel>/Notif/Bzmng', formatter: '.formatter.formatMeasureQuantity'}"
                 unit="{ parts:['viewModel>/Notif/Bzmng','viewModel>/Notif/Mgein'], formatter: '.formatter.SetVisibleUnit'}"
                 emphasized="false"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
 
-            <Label text="{i18n>Rkmng}" />
+            <Label
+                text="{i18n>Rkmng}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
+            />
             <ObjectNumber
                 number="{ 'path': 'viewModel>/Notif/Rkmng', formatter: '.formatter.formatMeasureQuantity'}"
                 unit="{ parts:['viewModel>/Notif/Rkmng','viewModel>/Notif/Mgein'], formatter: '.formatter.SetVisibleUnit'}"
                 emphasized="false"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
-
-            <!-- <Label text="{i18n>Mgein}" />
-            <Text text="{viewModel>Mgein}" /> -->
 
             <Label
                 text="{i18n>HataTuru}"
                 class="sapUiTinyMarginTop"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
             <ComboBox
                 items="{path: '/ShHataTuruSet', templateShareable: false}"
                 selectedKey="{viewModel>/Notif/HataTuru}"
                 editable="false"
                 width="20%"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             >
                 <core:ListItem
                     key="{Code}"
@@ -75,21 +94,35 @@
                 />
             </ComboBox>
 
-            <Label text="{i18n>TespEdlIst}" />
-            <Text text="{viewModel>/Notif/TespEdlIst}" />
+            <Label
+                text="{i18n>TespEdlIst}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
+            />
+            <Text
+                text="{viewModel>/Notif/TespEdlIst}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
+            />
 
-            <Label text="{i18n>Respc}" />
-            <Text text="{viewModel>/Notif/Respc}" />
+            <Label
+                text="{i18n>Respc}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
+            />
+            <Text
+                text="{viewModel>/Notif/Respc}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
+            />
 
             <Label
                 text="{i18n>ParcaStatu}"
                 class="sapUiTinyMarginTop"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
             <ComboBox
                 items="{path: '/ShPartStatuSet', templateShareable: false}"
                 selectedKey="{viewModel>/Notif/ParcaStatu}"
                 editable="false"
                 width="20%"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             >
                 <core:ListItem
                     key="{Code}"
@@ -100,12 +133,14 @@
             <Label
                 text="{i18n>Product}"
                 class="sapUiTinyMarginTop"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
             <ComboBox
                 items="{path: '/ShUrunGrubuSet', templateShareable: false}"
                 selectedKey="{viewModel>/Notif/UrunGrubu}"
                 editable="false"
                 width="20%"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             >
                 <core:ListItem
                     key="{Atwrt}"
@@ -113,18 +148,26 @@
                 />
             </ComboBox>
 
-            <Label text="{i18n>HowDetect}" />
-            <Text text="{viewModel>/Notif/HowDetect}" />
+            <Label
+                text="{i18n>HowDetect}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
+            />
+            <Text
+                text="{viewModel>/Notif/HowDetect}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
+            />
 
             <Label
                 text="{i18n>TekrarDurumu}"
                 class="sapUiTinyMarginTop"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
             <ComboBox
                 items="{path: '/ShTekrarSet', templateShareable: false}"
                 selectedKey="{viewModel>/Notif/TekrarDurumu}"
                 editable="false"
                 width="20%"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             >
                 <core:ListItem
                     key="{Code}"
@@ -132,14 +175,62 @@
                 />
             </ComboBox>
 
-
             <Label text="{i18n>Fetxt}" />
             <Text text="{viewModel>/Notif/Fetxt}" />
 
+            <Label
+                text="{i18n>Ottxt}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
+            />
+            <Text
+                text="{viewModel>/Notif/Ottxt}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
+            />
 
-            <Label text="{i18n>Ottxt}" />
-            <Text text="{viewModel>/Notif/Ottxt}" />
+            <Label
+                text="{i18n>Dusulecekpuan}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
+            />
+            <Text
+                text="{viewModel>/Notif/Dusulecekpuan}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
+            />
 
+            <Label
+                text="{i18n>Kayipzamandk}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
+            />
+            <Text
+                text="{viewModel>/Notif/Kayipzamandk}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
+            />
+
+            <Label
+                text="{i18n>ProblemCekme}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
+            />
+            <Text
+                text="{viewModel>/Notif/ProblemCekme}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
+            />
+
+            <Label
+                text="{i18n>Irsaliye}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
+            />
+            <Text
+                text="{viewModel>/Notif/Irsaliye}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
+            />
+
+            <Label
+                text="{i18n>DetectDat}"
+                visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
+            />
+            <Text
+                text="{ 'path': 'viewModel>/Notif/DetectDat', 'type': 'sap.ui.model.type.Date', 'formatOptions': { 'pattern': 'dd/MM/y' } }"
+                visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
+            />
         </layout:SimpleForm>
     </FlexBox>
 </core:FragmentDefinition>

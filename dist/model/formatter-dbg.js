@@ -140,6 +140,13 @@ sap.ui.define([], function () {
       return false;
     },
 
+    SetEditableQty: (sAuth, sDesicion) => {
+      if (sAuth) {
+        return !(sDesicion === "OK" || sDesicion === "NOK");
+      }
+      return false;
+    },
+
     SetVisibleTaskStatu: (sAuth, sDesicion) => {
       return (sDesicion === "OK" || sDesicion === "NOK");
     },
