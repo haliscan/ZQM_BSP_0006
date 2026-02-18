@@ -29,7 +29,10 @@
             </ComboBox>
         </FlexBox>
 
-        <FlexBox direction="Column">
+        <FlexBox
+            direction="Column"
+            visible="{= ${viewModel>/Header/Mncod} === '1003' }"
+        >
             <FlexBox direction="Row">
                 <Label
                     class="sapUiTinyMarginTop"
