@@ -120,6 +120,11 @@ sap.ui.define(
                             oViewModel.setProperty("/Approvement", oResp.Approvement);
                             oViewModel.setProperty("/Notif", oResp.Notif);
                             oViewModel.setProperty("/Auth", oResp.Auth);
+                            await this.onRefreshAtta();
+                            let oAttaUploader = this.byId("IdAttaUploader");
+                            if (oAttaUploader) {
+                                oAttaUploader.removeAllIncompleteItems()
+                            }
                         }
                         BusyIndicator.hide();
                     },
@@ -206,7 +211,7 @@ sap.ui.define(
                 let that = this;
                 BusyIndicator.show();
                 oData.create("/HeaderSet", oReq, {
-                    success: oResp => {
+                    success: async oResp => {
 
                         BusyIndicator.hide();
                         const hasError = oResp.Return.results.some(item =>
@@ -214,6 +219,8 @@ sap.ui.define(
                         );
                         if (!hasError) {
                             that._loadNotif(oResp.Qmnum, oResp.Manum);
+                            await this.uploadFiles();
+                            await this.onRefreshAtta();
                         }
 
                         let oAction = {
@@ -322,6 +329,111 @@ sap.ui.define(
                     oEvent.getSource().setValueState("None");
                 }
             },
+
+            //Attachments
+            async uploadFiles() {
+                const oAttaUploader = this.byId("IdAttaUploader");
+                const aIncompleteAttachments = oAttaUploader.getIncompleteItems();
+                const iAttachmentItemsCount = aIncompleteAttachments.length;
+                const sServiceUrl = this.getUploadUrl();
+
+                if (iAttachmentItemsCount) {
+                    aIncompleteAttachments.forEach(oAttachment => {
+                        oAttachment.setUploadUrl(sServiceUrl);
+                    });
+                    await oAttaUploader.upload();
+                }
+            },
+
+            getUploadUrl() {
+                const oModel = this.getModel();
+                const oViewModel = this.getViewModel();
+                const sQmnum = oViewModel.getProperty("/Header/Qmnum") || {};
+                const sManum = oViewModel.getProperty("/Header/Manum") || {};
+                const sPath = oModel.createKey("/HeaderSet", {
+                    Qmnum: sQmnum,
+                    Manum: sManum
+                });
+                const sServiceURL = oModel.sServiceUrl;
+                return `${sServiceURL}${sPath}/Attachment`;
+            },
+
+            onBeforeAttUpload(oEvent) {
+                const oModel = this.getModel();
+                const oItem = oEvent.getParameter("item");
+                oModel.refreshSecurityToken();
+                oItem.removeAllHeaderFields();
+                oItem.addHeaderField(new sap.ui.core.Item({
+                    key: "x-csrf-token",
+                    text: oModel.getSecurityToken()
+                }));
+
+                oItem.addHeaderField(new sap.ui.core.Item({
+                    key: "slug",
+                    text: encodeURIComponent(oItem.getFileName())
+                }));
+            },
+
+            async onComplAttUpload(oEvent) {
+                const oDocument = oEvent.getParameter("item");
+                if (oDocument?.getUploadState() === "Complete") {
+                    this.byId("IdAttaUploader").removeItem(oDocument);
+                    await this.onRefreshAtta();
+                }
+            },
+
+            async onRemoveAttItem(oEvent) {
+                const oViewModel = this.getViewModel();
+                const sPath = oEvent.getParameter("item")?.getBindingContext("viewModel")?.getPath();
+                const aAtta = oViewModel.getProperty("/Attachment") || [];
+                const oAtta = oViewModel.getProperty(sPath);
+
+                if (oAtta) {
+                    const oModel = this.getModel();
+                    const oAttaKey = oModel.createKey("/AttachmentSet", {
+                        Qmnum: oAtta.Qmnum,
+                        Manum: oAtta.Manum,
+                        RecGuid: oAtta.RecGuid,
+                        AppType: oAtta.AppType,
+                        ObjKey: oAtta.ObjKey
+                    });
+                    const iIndex = +sPath.split('/').pop();
+
+                    BusyIndicator.show();
+                    try {
+                        await this.onDelete(oAttaKey, oModel);
+                        aAtta.splice(iIndex, 1);
+                        oViewModel.setProperty("/Attachment", aAtta);
+                        BusyIndicator.hide();
+                        MessageToast.show(this.getText("successDeleteAtta"));
+                    } catch (oError) {
+                        BusyIndicator.hide();
+                    }
+                }
+            },
+
+            onOpenAttItem: function (oEvent) {
+                const oItem = oEvent.getSource().getParent();
+                const oViewModel = this.getViewModel();
+                const sPath = oItem.getBindingContext("viewModel").getPath();
+                const oAttachment = oViewModel.getProperty(sPath);
+
+                if (oAttachment) {
+                    window.open(oAttachment.Url, "_blank");
+                }
+            },
+
+            onRefreshAtta: async function () {
+                let sQmnum = this.getViewModel().getProperty("/Header/Qmnum") || "";
+                let sManum = this.getViewModel().getProperty("/Header/Manum") || "";
+                BusyIndicator.show();
+                let aAtta = await this.onReadQuery("/AttachmentSet", [
+                    new Filter("Qmnum", FilterOperator.EQ, sQmnum),
+                    new Filter("Manum", FilterOperator.EQ, sManum)], oData);
+                this.getViewModel().setProperty("/Attachment", aAtta.results || []);
+                BusyIndicator.hide();
+            },
+
             onNavBack: function () {
 
                 let oViewModel = this.getViewModel();

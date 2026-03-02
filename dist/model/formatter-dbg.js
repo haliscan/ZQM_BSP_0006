@@ -151,6 +151,30 @@ sap.ui.define([], function () {
       return (sDesicion === "OK" || sDesicion === "NOK");
     },
 
+    SetEditableAtta: (sAuth, sMncod, sDesicion) => {
+      let bEditable = false;
+      if (sAuth && (sMncod === "1004" || sMncod === "1005")) {
+        bEditable = !(sDesicion === "OK" || sDesicion === "NOK");
+      } else {
+        if (sAuth && !(sMncod === "1004" || sMncod === "1005")) {
+          bEditable = !(sDesicion === "OK" || sDesicion === "NOK");
+        }
+      }
+      return bEditable;
+    },
+
+    SetEditableAttaMode: (sAuth, sMncod, sDesicion) => {
+      let sMode = "None";
+      if (sAuth && (sMncod === "1004" || sMncod === "1005")) {
+        sMode = !(sDesicion === "OK" || sDesicion === "NOK") ? "Delete" : "None";
+      } else {
+        if (sAuth && !(sMncod === "1004" || sMncod === "1005")) {
+          sMode = !(sDesicion === "OK" || sDesicion === "NOK") ? "Delete" : "None";
+        }
+      }
+      return sMode;
+    }
+
   };
 });
 

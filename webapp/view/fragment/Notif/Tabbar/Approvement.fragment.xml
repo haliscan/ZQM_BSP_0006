@@ -2,6 +2,7 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
     xmlns:table="sap.ui.table"
+    xmlns:upload="sap.m.upload"
 >
     <FlexBox
         direction="Column"
@@ -105,6 +106,34 @@
                 type="Emphasized"
                 visible="{ parts:['viewModel>/Auth/Authenticated','viewModel>/Header/Mncod','viewModel>/Approvement/Decision'], formatter: '.formatter.SetVisibleSaveAction'}"
             />
+        </FlexBox>
+
+        <FlexBox
+            direction="Row"
+            alignContent="Start"
+            justifyContent="Start"
+        >
+            <upload:UploadSet
+                id="IdAttaUploader"
+                items="{viewModel>/Attachment}"
+                instantUpload="false"
+                mode="{ parts:['viewModel>/Auth/Authenticated','viewModel>/Header/Mncod','viewModel>/Approvement/Decision'], formatter: '.formatter.SetEditableAttaMode'}"
+                beforeUploadStarts="onBeforeAttUpload"
+                afterItemRemoved="onRemoveAttItem"
+                uploadCompleted="onComplAttUpload"
+                uploadEnabled="{ parts:['viewModel>/Auth/Authenticated','viewModel>/Header/Mncod','viewModel>/Approvement/Decision'], formatter: '.formatter.SetEditableAtta'}"
+            >
+                <upload:items>
+                    <upload:UploadSetItem
+                        url="{viewModel>Url}"
+                        fileName="{viewModel>OrjFileName}"
+                        mediaType="{viewModel>DocType}"
+                        visibleEdit="false"
+                        enabledEdit="false"
+                        visibleRemove="{ parts:['viewModel>/Auth/Authenticated','viewModel>/Header/Mncod','viewModel>/Approvement/Decision'], formatter: '.formatter.SetEditableAtta'}"
+                    />
+                </upload:items>
+            </upload:UploadSet>
         </FlexBox>
     </FlexBox>
 </core:FragmentDefinition>
