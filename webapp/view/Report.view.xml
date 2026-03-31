@@ -917,17 +917,53 @@
                     <ui:Column hAlign="Center">
                         <Label
                             wrapping="true"
+                            text="{i18n>Fecod}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "460", "columnKey": "Fecod", "additionalProperty":"Fecod", "leadingProperty": "Fecod", "autoColumnWidth": \{ "visibleProperty": "Fecod" }, "sortProperty": "Fecod"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text
+                                text="{Fecod}"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
                             text="{i18n>Fetxt}"
                         />
                         <ui:customData>
                             <core:CustomData
                                 key="p13nData"
-                                value='\{"columnIndex": "460", "columnKey": "Fetxt", "additionalProperty":"Fetxt", "leadingProperty": "Fetxt", "autoColumnWidth": \{ "visibleProperty": "Fetxt" }, "sortProperty": "Fetxt"}'
+                                value='\{"columnIndex": "465", "columnKey": "Fetxt", "additionalProperty":"Fetxt", "leadingProperty": "Fetxt", "autoColumnWidth": \{ "visibleProperty": "Fetxt" }, "sortProperty": "Fetxt"}'
                             />
                         </ui:customData>
                         <ui:template>
                             <Text
-                                text="{Fetxt} {Fecod}"
+                                text="{Fetxt}"
+                            />
+                        </ui:template>
+                    </ui:Column>
+
+                    <ui:Column hAlign="Center">
+                        <Label
+                            wrapping="true"
+                            text="{i18n>Oteil}"
+                        />
+                        <ui:customData>
+                            <core:CustomData
+                                key="p13nData"
+                                value='\{"columnIndex": "470", "columnKey": "Oteil", "additionalProperty":"Oteil", "leadingProperty": "Oteil", "autoColumnWidth": \{ "visibleProperty": "Oteil" }, "sortProperty": "Oteil"}'
+                            />
+                        </ui:customData>
+                        <ui:template>
+                            <Text
+                                text="{Oteil}"
                             />
                         </ui:template>
                     </ui:Column>
@@ -940,12 +976,12 @@
                         <ui:customData>
                             <core:CustomData
                                 key="p13nData"
-                                value='\{"columnIndex": "470", "columnKey": "Ottxt", "additionalProperty":"Ottxt", "leadingProperty": "Ottxt", "autoColumnWidth": \{ "visibleProperty": "Ottxt" }, "sortProperty": "Ottxt"}'
+                                value='\{"columnIndex": "475", "columnKey": "Ottxt", "additionalProperty":"Ottxt", "leadingProperty": "Ottxt", "autoColumnWidth": \{ "visibleProperty": "Ottxt" }, "sortProperty": "Ottxt"}'
                             />
                         </ui:customData>
                         <ui:template>
                             <Text
-                                text="{Ottxt} {Oteil}"
+                                text="{Ottxt}"
                             />
                         </ui:template>
                     </ui:Column>

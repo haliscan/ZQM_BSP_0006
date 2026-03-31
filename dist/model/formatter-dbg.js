@@ -119,18 +119,32 @@ sap.ui.define([], function () {
       return sErnamTxt;
     },
 
-    SetVisibleApproveAction: (sAuth, sMncod, sDesicion) => {
-      if (sAuth && (sMncod === "1004" || sMncod === "1005")) {
-        return !(sDesicion === "OK" || sDesicion === "NOK");
+    SetVisibleApproveAction: (sQmart, sAuth, sMncod, sDesicion, sIsSupplier) => {
+      if (sDesicion === "OK" || sDesicion === "NOK") {
+        return false;
       }
-      return false;
+
+      if (!(sQmart === 'Y1' || sQmart === 'YL') || !sAuth) {
+        return false;
+      }
+
+      if (!sIsSupplier) {
+        return true;
+      }
+
+      return sMncod === "1004";
     },
 
-    SetVisibleSaveAction: (sAuth, sMncod, sDesicion) => {
-      if (sAuth && !(sMncod === "1004" || sMncod === "1005")) {
-        return !(sDesicion === "OK" || sDesicion === "NOK");
+    SetVisibleSaveAction: (sQmart, sAuth, sMncod, sDesicion, sIsSupplier) => {
+      if (sDesicion === "OK" || sDesicion === "NOK" || sDesicion === "SV") {
+        return false;
       }
-      return false;
+
+      if (!(sQmart === 'Y1' || sQmart === 'YL') || !sAuth) {
+        return false;
+      }
+
+      return sMncod !== "1004";
     },
 
     SetEditableDescr: (sAuth, sDesicion) => {

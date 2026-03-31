@@ -120,6 +120,11 @@ sap.ui.define(
                             oViewModel.setProperty("/Approvement", oResp.Approvement);
                             oViewModel.setProperty("/Notif", oResp.Notif);
                             oViewModel.setProperty("/Auth", oResp.Auth);
+
+                            const sUserPath = oData.createKey("/UserSet", { Uname: 'HCAN' });
+                            const oLogged = await this.onRead(sUserPath, oData);
+                            oViewModel.setProperty("/IsSupplier", oLogged.IsSupplier);
+
                             await this.onRefreshAtta();
                             let oAttaUploader = this.byId("IdAttaUploader");
                             if (oAttaUploader) {

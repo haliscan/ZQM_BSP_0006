@@ -12,28 +12,28 @@
             labelSpanS="1"
             emptySpanL="0"
         >
-            <Label text="{i18n>Manum}" />
+            <Label width="200px" text="{i18n>Manum}" />
             <Text text="{viewModel>/Notif/Manum}" />
 
-            <Label text="{i18n>Qmnum}" />
+            <Label width="200px" text="{i18n>Qmnum}" />
             <Text text="{viewModel>/Notif/Qmnum}" />
 
-            <Label text="{i18n>Qmdat}" />
+            <Label width="200px" text="{i18n>Qmdat}" />
             <Text
                 text="{ 'path': 'viewModel>/Notif/Qmdat', 'type': 'sap.ui.model.type.Date', 'formatOptions': { 'pattern': 'dd/MM/y' } }"
             />
 
-            <Label text="{i18n>Mzeit}" />
+            <Label width="200px" text="{i18n>Mzeit}" />
             <Text
                 text="{ 'path': 'viewModel>/Notif/Mzeit', formatter: '.formatter.formatMsToTime'}"
             />
 
-            <Label text="{i18n>Ernam}" />
+            <Label width="200px" text="{i18n>Ernam}" />
             <Text
                 text="{ parts:['viewModel>/Notif/Ernam','viewModel>/Notif/ErnamTxt'], formatter: '.formatter.formatErnam'}"
             />
 
-            <Label
+            <Label width="200px"
                 text="{i18n>Ebeln}"
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
@@ -42,7 +42,7 @@
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
 
-            <Label
+            <Label width="200px"
                 text="{i18n>Mblnr}"
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
@@ -51,10 +51,10 @@
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
 
-            <Label text="{i18n>Vbeln}" />
+            <Label width="200px" text="{i18n>Vbeln}" />
             <Text text="{viewModel>/Notif/Vbeln}" />
 
-            <Label
+            <Label width="200px"
                 text="{i18n>Bzmng}"
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
@@ -65,7 +65,7 @@
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
 
-            <Label
+            <Label width="200px"
                 text="{i18n>Rkmng}"
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
@@ -76,7 +76,7 @@
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
 
-            <Label
+            <Label width="200px"
                 text="{i18n>HataTuru}"
                 class="sapUiTinyMarginTop"
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
@@ -94,7 +94,7 @@
                 />
             </ComboBox>
 
-            <Label
+            <Label width="200px"
                 text="{i18n>TespEdlIst}"
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
@@ -103,7 +103,7 @@
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
 
-            <Label
+            <Label width="200px"
                 text="{i18n>Respc}"
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
@@ -112,7 +112,7 @@
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
 
-            <Label
+            <Label width="200px"
                 text="{i18n>ParcaStatu}"
                 class="sapUiTinyMarginTop"
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
@@ -130,7 +130,7 @@
                 />
             </ComboBox>
 
-            <Label
+            <Label width="200px"
                 text="{i18n>Product}"
                 class="sapUiTinyMarginTop"
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
@@ -148,7 +148,7 @@
                 />
             </ComboBox>
 
-            <Label
+            <Label width="200px"
                 text="{i18n>HowDetect}"
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
@@ -157,7 +157,7 @@
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
 
-            <Label
+            <Label width="200px"
                 text="{i18n>TekrarDurumu}"
                 class="sapUiTinyMarginTop"
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
@@ -175,10 +175,10 @@
                 />
             </ComboBox>
 
-            <Label text="{i18n>Fetxt}" />
+            <Label width="200px" text="{i18n>Fetxt}" />
             <Text text="{viewModel>/Notif/Fetxt}" />
 
-            <Label
+            <Label width="200px"
                 text="{i18n>Ottxt}"
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
@@ -187,7 +187,7 @@
                 visible="{= ${viewModel>/Notif/Qmart} === 'Y1' ? true : false }"
             />
 
-            <Label
+            <Label width="200px"
                 text="{i18n>Dusulecekpuan}"
                 visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
             />
@@ -196,7 +196,7 @@
                 visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
             />
 
-            <Label
+            <Label width="200px"
                 text="{i18n>Kayipzamandk}"
                 visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
             />
@@ -204,17 +204,17 @@
                 text="{viewModel>/Notif/Kayipzamandk}"
                 visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
             />
-
-            <Label
+            
+            <!-- <Label width="200px"
                 text="{i18n>ProblemCekme}"
                 visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
             />
             <Text
                 text="{viewModel>/Notif/ProblemCekme}"
                 visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
-            />
+            /> -->
 
-            <Label
+            <Label width="200px"
                 text="{i18n>Irsaliye}"
                 visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
             />
@@ -223,7 +223,7 @@
                 visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
             />
 
-            <Label
+            <Label width="200px"
                 text="{i18n>DetectDat}"
                 visible="{= ${viewModel>/Notif/Qmart} === 'YL' ? true : false }"
             />
