@@ -126,7 +126,7 @@
                 >
                     <ui:rowSettingsTemplate>
                         <ui:RowSettings
-                            highlight="{= ${TaskOnay} === 'OK' ? 'Success' : ${TaskOnay} === 'NOK' ? 'Error' : 'None' }"
+                            highlight="{= ${TaskOnay} === 'OK' ? 'Success' : ${TaskOnay} === 'NOK' ? 'Error' : ${TaskOnay} === 'SV' ? 'Information' : 'None' }"
                         />
                     </ui:rowSettingsTemplate>
 

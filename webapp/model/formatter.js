@@ -128,6 +128,10 @@ sap.ui.define([], function () {
         return false;
       }
 
+      if (sDesicion !== "SV" && (sMncod === "1000" || sMncod === "1001" || sMncod === "1002")) {
+        return false;
+      }
+
       if (!sIsSupplier) {
         return true;
       }
@@ -136,7 +140,7 @@ sap.ui.define([], function () {
     },
 
     SetVisibleSaveAction: (sQmart, sAuth, sMncod, sDesicion, sIsSupplier) => {
-      if (sDesicion === "OK" || sDesicion === "NOK" || sDesicion === "SV") {
+      if (sDesicion === "OK" || sDesicion === "NOK") {
         return false;
       }
 
@@ -144,7 +148,20 @@ sap.ui.define([], function () {
         return false;
       }
 
-      return sMncod !== "1004";
+      return true;
+    },
+
+
+    SetVisibleSaveSendAction: (sQmart, sAuth, sMncod, sDesicion, sIsSupplier) => {
+      if (sDesicion === "OK" || sDesicion === "NOK") {
+        return false;
+      }
+
+      if (!(sQmart === 'Y1' || sQmart === 'YL') || !sAuth) {
+        return false;
+      }
+
+      return (sMncod !== "1004" && sMncod !== "1005");
     },
 
     SetEditableDescr: (sAuth, sDesicion) => {

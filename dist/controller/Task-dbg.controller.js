@@ -158,6 +158,24 @@ sap.ui.define(
                 }
             },
 
+            onSaveDescr: function () {
+                let that = this;
+                if (that._validateTask() !== "OK") {
+                    return;
+                }
+
+                this.confirmAction(this.getText("ConfirmSaveDescrTask"), this.getView())
+                    .then(function (bConfirmed) {
+                        if (bConfirmed) {
+                            let oReq = that._buildReqHeader();
+                            oReq.Util = "SaveDescr";
+                            that._sendReq(oReq);
+                        } else {
+                            MessageToast.show(that.getText("MsgCancelled"));
+                        }
+                    });
+            },
+
             onSave: function () {
                 let that = this;
                 if (that._validateTask() !== "OK") {

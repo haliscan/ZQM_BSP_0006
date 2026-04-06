@@ -101,12 +101,21 @@
                 type="Reject"
                 visible="{ parts:['viewModel>/Header/Qmart','viewModel>/Auth/Authenticated','viewModel>/Header/Mncod','viewModel>/Approvement/Decision','viewModel>/IsSupplier'], formatter: '.formatter.SetVisibleApproveAction'}"
             />
+
+            <Button
+                press="onSaveDescr"
+                class="sapUiSmallMarginEnd"
+                text="{i18n>SaveDescr}"
+                type="Emphasized"
+                visible="{ parts:['viewModel>/Header/Qmart','viewModel>/Auth/Authenticated','viewModel>/Header/Mncod','viewModel>/Approvement/Decision','viewModel>/IsSupplier'], formatter: '.formatter.SetVisibleSaveAction'}"
+            />
+
             <Button
                 press="onSave"
                 class="sapUiSmallMarginEnd"
                 text="{i18n>Save}"
                 type="Emphasized"
-                visible="{ parts:['viewModel>/Header/Qmart','viewModel>/Auth/Authenticated','viewModel>/Header/Mncod','viewModel>/Approvement/Decision','viewModel>/IsSupplier'], formatter: '.formatter.SetVisibleSaveAction'}"
+                visible="{ parts:['viewModel>/Header/Qmart','viewModel>/Auth/Authenticated','viewModel>/Header/Mncod','viewModel>/Approvement/Decision','viewModel>/IsSupplier'], formatter: '.formatter.SetVisibleSaveSendAction'}"
             />
         </FlexBox>
 
