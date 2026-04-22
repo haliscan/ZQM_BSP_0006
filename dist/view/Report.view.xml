@@ -88,6 +88,15 @@
                         filterType="interval"
                         controlType="date"
                     />
+
+                    <smartFilterBar:ControlConfiguration
+                        key="TaskOnay"
+                        filterType="single"
+                        label="{i18n>TaskOnay}"
+                        controlType="dropDownList"
+                        displayBehaviour="idAndDescription"
+                    />
+
                 </smartFilterBar:controlConfiguration>
             </smartFilterBar:SmartFilterBar>
         </semantic:headerContent>

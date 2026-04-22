@@ -27,6 +27,7 @@
                         <PropertyPath>Parnr</PropertyPath> 
                         <PropertyPath>Fecod</PropertyPath> 
                         <PropertyPath>Oteil</PropertyPath> 
+                        <PropertyPath>TaskOnay</PropertyPath> 
                     </Collection>
                 </Annotation>
             </Annotations>
@@ -199,6 +200,26 @@
                                 </Record>
                                 <Record Type="Common.ValueListParameterDisplayOnly">
                                     <PropertyValue Property="ValueListProperty" String="Kurztext" />
+                                </Record>           
+ 
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="ZQM_0006_SRV.Report/TaskOnay">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ShOnystSet" />
+                        <PropertyValue Property="Parameters">
+                            <Collection> 
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="TaskOnay" />
+                                    <PropertyValue Property="ValueListProperty" String="Code" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Description" />
                                 </Record>           
  
                             </Collection>
