@@ -141,6 +141,7 @@
 
                     <ui:Column
                         filterProperty="Qmnum"
+                        sortProperty="Qmnum"
                         hAlign="Center"
                     >
                         <Label
@@ -158,7 +159,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Manum"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Manum}"
@@ -176,7 +180,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Mnkat"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Mnkat}"
@@ -194,6 +201,7 @@
 
                     <ui:Column
                         filterProperty="Mngrp"
+                        sortProperty="Mngrp"
                         hAlign="Center"
                     >
                         <Label
@@ -213,6 +221,7 @@
 
                     <ui:Column
                         filterProperty="Mncod"
+                        sortProperty="Mncod"
                         hAlign="Center"
                     >
                         <Label
@@ -232,7 +241,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Mntxt"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Mntxt}"
@@ -248,7 +260,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="ErnamTsk"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>ErnamTsk}"
@@ -266,6 +281,7 @@
 
                     <ui:Column
                         filterProperty="ErdatTsk"
+                        sortProperty="ErdatTsk"
                         hAlign="Center"
                     >
                         <Label
@@ -285,7 +301,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Pster"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Pster}"
@@ -303,7 +322,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Peter"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Peter}"
@@ -321,7 +343,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Pstur"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Pstur}"
@@ -339,7 +364,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Petur"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Petur}"
@@ -357,7 +385,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Erlnam"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Erlnam}"
@@ -373,7 +404,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Erldat"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Erldat}"
@@ -391,7 +425,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Erlzeit"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Erlzeit}"
@@ -409,7 +446,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Fenum"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Fenum}"
@@ -429,6 +469,7 @@
 
                     <ui:Column
                         filterProperty="Parnr"
+                        sortProperty="Parnr"
                         hAlign="Center"
                     >
                         <Label
@@ -446,7 +487,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Qsmnum"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Qsmnum}"
@@ -464,7 +508,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Matxt"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Matxt}"
@@ -482,6 +529,7 @@
 
                     <ui:Column
                         filterProperty="Lifnum"
+                        sortProperty="Lifnum"
                         hAlign="Center"
                     >
                         <Label
@@ -499,7 +547,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Lifname"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Lifname}"
@@ -517,6 +568,7 @@
 
                     <ui:Column
                         filterProperty="Qmart"
+                        sortProperty="Qmart"
                         hAlign="Center"
                     >
                         <Label
@@ -534,7 +586,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Qmcod"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Qmcod}"
@@ -550,7 +605,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Matnr"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Matnr}"
@@ -566,7 +624,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Maktx"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Maktx}"
@@ -582,7 +643,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Qmdat"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Qmdat}"
@@ -600,7 +664,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Mzeit"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Mzeit}"
@@ -618,7 +685,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="ErnamNtf"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>ErnamNtf}"
@@ -634,7 +704,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Ebeln"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Ebeln}"
@@ -650,7 +723,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Mblnr"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Mblnr}"
@@ -666,7 +742,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Vbeln"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Vbeln}"
@@ -682,7 +761,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Bzmng"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Bzmng}"
@@ -702,7 +784,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Rkmng"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Rkmng}"
@@ -738,7 +823,10 @@
                         </ui:template>
                     </ui:Column> -->
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="HataTuru"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>HataTuru}"
@@ -754,7 +842,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="TespEdlIst"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>TespEdlIst}"
@@ -770,7 +861,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Respc"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Respc}"
@@ -786,7 +880,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="ParcaStatu"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>ParcaStatu}"
@@ -802,7 +899,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="UrunGrubu"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Product}"
@@ -818,7 +918,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="HowDetect"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>HowDetect}"
@@ -834,7 +937,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="TekrarDurumu"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>TekrarDurumu}"
@@ -852,6 +958,7 @@
 
                     <ui:Column
                         filterProperty="NtfStat"
+                        sortProperty="NtfStat"
                         hAlign="Center"
                     >
                         <Label
@@ -869,7 +976,11 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        filterProperty="TaskOnay"
+                        sortProperty="TaskOnay"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>TaskOnay}"
@@ -887,6 +998,7 @@
 
                     <ui:Column
                         filterProperty="Check48"
+                        sortProperty="Check48"
                         hAlign="Center"
                     >
                         <Label
@@ -904,7 +1016,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Durus"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Durus}"
@@ -923,7 +1038,11 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        filterProperty="Fecod"
+                        sortProperty="Fecod"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Fecod}"
@@ -941,7 +1060,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Fetxt"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Fetxt}"
@@ -959,7 +1081,11 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        filterProperty="Oteil"
+                        sortProperty="Oteil"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Oteil}"
@@ -977,7 +1103,10 @@
                         </ui:template>
                     </ui:Column>
 
-                    <ui:Column hAlign="Center">
+                    <ui:Column
+                        sortProperty="Ottxt"
+                        hAlign="Center"
+                    >
                         <Label
                             wrapping="true"
                             text="{i18n>Ottxt}"
