@@ -186,6 +186,86 @@ sap.ui.define(
                 });
             },
 
+            onShowAllHataTuru(oEvent) {
+                const sQmnum = oEvent.getSource().getBindingContext().getObject().Qmnum;
+                const aFilters = [
+                    new sap.ui.model.Filter("Qmnum", sap.ui.model.FilterOperator.EQ, sQmnum)
+                ];
+
+                BusyIndicator.show(0);
+                oData.read("/IssueSet", {
+                    filters: aFilters,
+                    success: (oResponse) => {
+                        BusyIndicator.hide();
+
+                        const aItems = oResponse?.results || [];
+                        if (aItems.length === 0) {
+                            return MessageBox.information(this.getText("NoRecordFound"));
+                        }
+
+                        const oList = new sap.m.List({
+                            items: {
+                                path: "/items",
+                                template: new sap.m.CustomListItem({
+                                    content: [
+                                        new sap.m.VBox({
+                                            items: [
+                                                new sap.m.Label({
+                                                    text: "{FecodTxt}",
+                                                    wrapping: true
+                                                }).addStyleClass("sapUiSmallMarginBegin sapUiTinyMarginTop"),
+                                                new sap.m.Text({
+                                                    text: "{Fecod}",
+                                                    wrapping: true
+                                                }).addStyleClass("sapUiSmallMarginBegin sapUiTinyMarginTopBottom"),
+                                                // new sap.m.HBox({
+                                                //     items: [
+                                                //         new sap.m.Label({
+                                                //             text: this.getText("ProblemCekme")
+                                                //         }).addStyleClass("sapUiSmallMarginBegin sapUiTinyMarginBottom"),
+                                                //         new sap.m.Text({
+                                                //             text: "{ProblemCozme}:",
+                                                //             wrapping: true
+                                                //         }).addStyleClass("sapUiTinyMarginBottom")
+                                                //     ]
+                                                // })
+                                            ]
+                                        })
+                                    ]
+                                })
+                            }
+                        });
+
+                        const oModel = new sap.ui.model.json.JSONModel({ items: aItems });
+                        oList.setModel(oModel);
+
+                        const oDialog = new sap.m.Dialog({
+                            title: `${this.getText("HataTuruListTitle")} - ${sQmnum}`,
+                            contentWidth: "500px",
+                            contentHeight: "400px",
+                            stretchOnPhone: true,
+                            content: [oList],
+                            endButton: new sap.m.Button({
+                                text: this.getText("Close"),
+                                press: function () {
+                                    oDialog.close();
+                                }
+                            }),
+                            afterClose: function () {
+                                oDialog.destroy();
+                            }
+                        });
+
+                        this.getView().addDependent(oDialog);
+                        oDialog.open();
+                    },
+                    error: () => {
+                        BusyIndicator.hide();
+                        MessageBox.error(this.getText("IssueSetReadError"));
+                    }
+                });
+            },
+
             _setSFBconfig: function () {
                 var oSFB = this.byId("idSfbReportSet");
                 if (oSFB) {

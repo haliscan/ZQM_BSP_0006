@@ -824,21 +824,24 @@
                     </ui:Column> -->
 
                     <ui:Column
+                        filterProperty="HataTuru"
                         sortProperty="HataTuru"
                         hAlign="Center"
                     >
-                        <Label
-                            wrapping="true"
-                            text="{i18n>HataTuru}"
-                        />
+                        <Label text="{i18n>HataTuru}" />
                         <ui:customData>
                             <core:CustomData
                                 key="p13nData"
-                                value='\{"columnIndex": "340", "columnKey": "HataTuru", "additionalProperty":"HataTuru", "leadingProperty": "HataTuru", "autoColumnWidth": \{ "visibleProperty": "HataTuru" }, "sortProperty": "HataTuru"}'
+                                value='\{"columnIndex": "340", "columnKey": "HataTuru", "additionalProperty":"HataTuru", "leadingProperty": "HataTuru", "autoColumnWidth": \{ "visibleProperty": "Respc" \},"sortProperty": "HataTuru", "filterProperty":"HataTuru"}'
                             />
                         </ui:customData>
                         <ui:template>
-                            <Text text="{HataTuru}" />
+                            <VBox>
+                                <Link
+                                    text="{i18n>ShowAll}"
+                                    press="onShowAllHataTuru"
+                                />
+                            </VBox>
                         </ui:template>
                     </ui:Column>
 

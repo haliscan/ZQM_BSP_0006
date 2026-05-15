@@ -3,7 +3,11 @@
     "sap.app": {
         "id": "com.karsan.qm.taskmanage",
         "type": "application",
-        "i18n": "i18n/i18n.properties",
+        "i18n": {
+            "bundleUrl": "i18n/i18n.properties",
+            "supportedLocales": ["tr", "en", ""],
+            "fallbackLocale": ""
+        },
         "applicationVersion": {
             "version": "0.0.1"
         },
@@ -83,7 +87,9 @@
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
-                    "bundleName": "com.karsan.qm.taskmanage.i18n.i18n"
+                    "bundleName": "com.karsan.qm.taskmanage.i18n.i18n",
+                    "supportedLocales": ["tr", "en", ""],
+                    "fallbackLocale": ""
                 }
             },
             "viewModel": {
